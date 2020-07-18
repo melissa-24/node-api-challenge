@@ -22,6 +22,16 @@ router.get('/projects/:id/action/:id', (req, res) => {
         });
 });
 
+router.get('/action', (req, res) => {
+    Actions.get()
+        .then(action => {
+            res.status(200).json(action);
+        })
+        .catch(error => {
+            res.status(500).json({ error: 'problem getting actions'});
+        });
+});
+
 // ...............................
 // Create Action
 // ...............................
@@ -63,6 +73,19 @@ router.put('/action/:id', async (req, res) => {
 // Delete Action
 // ...............................
 
+router.delete('/action/:id', (req, res) => {
+    Actions.remove(req.params.id)
+     .then(removed => {
+         if(removed === 0) {
+             res.status(404),json({ error: "id does not exist"});
+         } else {
+             res.status(200).json(removed)
+         }
+     })
+     .catch((error) => {
+         res.status(500).json({ error: "server is down"});
+     });
+});
 
 
 
