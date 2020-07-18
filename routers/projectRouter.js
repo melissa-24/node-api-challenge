@@ -83,4 +83,21 @@ router.put('/:id', (req, res) => {
 // Delete project
 // ...............................
 
+router.delete('/:id', (req, res) => {
+    Projects.remove(req.params.id)
+        .then(removed => {
+            if(removed === 0) {
+                res.status(404).json({ error: "this id does not exist"});
+            } else {
+                res.status(200).json(removed);
+            }
+        })
+        .catch((error) => {
+            res.status(500).json({ error: "Server is down."});
+        });
+});
+
+
+// ...............................
+
 module.exports = router;
