@@ -10,7 +10,7 @@ server.use(express.json());
 // ...............................
 
 server.use('/api/projects', projectRouter);
-server.use('/api/projects/:id', actionRouter);
+server.use('/api', actionRouter);
 
 // ...............................
 server.get('/', (req, res) => {
