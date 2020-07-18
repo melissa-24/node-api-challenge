@@ -41,12 +41,15 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 - [ ] Mention two parts of Express that you learned about this week.
 
 - [ ] Describe Middleware?
+A - Software, program, or function that allows 2 or more parts work together that normally wouldn't
 
 - [ ] Describe a Resource?
 
 - [ ] What can the API return to help clients know if a request was successful?
+A - A code 200 can be used to indicate that the request was successful. 
 
 - [ ] How can we partition our application into sub-applications?
+A - We can use Routes to set different rules.
 
 ## Minimum Viable Product
 

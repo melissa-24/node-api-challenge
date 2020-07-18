@@ -12,15 +12,13 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Go code!
 */
-const express = require("express");
+//const express = require("express");
 
-const server = express();
+//const server = express();
 
-server.use(express.json());
+//server.use(express.json());
 
-server.get('/', (req, res) => {
-    res.json( 'I am at your server!' );
-});
+const server = require('./server.js');
 
 const PORT = 5000;
 
