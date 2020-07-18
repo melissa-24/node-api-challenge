@@ -7,7 +7,7 @@ const router = express.Router();
 // ...............................
 // Get projects
 // ...............................
-router.get('/', (req, res) => {;
+router.get('/', (req, res) => {
     Projects.get()
         .then(projects => {
             res.status(200).json(projects);
@@ -47,7 +47,7 @@ router.post('/', (req, res) => {
             }
         })
         .catch(error => {
-            res.statys(500).json({ error: "There was a problem saving data"});
+            res.status(500).json({ error: "There was a problem saving data"});
         });
 });
 
