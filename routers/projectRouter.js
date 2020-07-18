@@ -56,7 +56,27 @@ router.post('/', (req, res) => {
 // Update project
 // ...............................
 
+router.put('/:id', (req, res) => {
+    const update = req.body;
 
+    Projects.getProjectActions(req.params.id)
+        .then(() => {
+            if(!update.name || !update.description) {
+                res.status(400).json({ error: "Please provide name and description for project"})
+            } else {
+                Projects.update(req.params.id, update)
+                    .then(() => {
+                        res.status(200).json(update);
+                    })
+                    .catch((error) => {
+                        res.status(500).json({ error: "Could not be saved"});
+                    });
+            }
+        })
+        .catch((error) => {
+            res.status(404).json({ error: "the post id does not exist"});
+        });
+});
 
 
 // ...............................
