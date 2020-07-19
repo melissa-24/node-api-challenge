@@ -18,10 +18,11 @@ Go code!
 
 //server.use(express.json());
 
+require('dotenv').config();
 const server = require('./server.js');
 
-const PORT = 5000;
+const port = process.env.PORT || 5000;
 
 server.listen(PORT, () => {
-    console.log('Server is on', PORT);
+    console.log('Looks like I am up and running', PORT);
 });
